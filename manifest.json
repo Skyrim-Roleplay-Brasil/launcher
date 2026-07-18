@@ -1,7 +1,7 @@
 {
   "_comment": "Manifesto canonico v1.4.0 - gerado por /root/regen-manifest.py a partir dos arquivos do disco. NAO editar na mao.",
   "launcher": {
-    "version": "1.5.13",
+    "version": "1.5.14",
     "downloadUrl": "https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/latest/download/SkyrimRP-Launcher-Setup.exe"
   },
   "game": {
