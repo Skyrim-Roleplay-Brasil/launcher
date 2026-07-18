@@ -1,0 +1,136 @@
+{
+  "_comment": "Manifesto canonico v1.4.0 - gerado por /root/regen-manifest.py a partir dos arquivos do disco. NAO editar na mao.",
+  "launcher": {
+    "version": "1.5.12",
+    "downloadUrl": "https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/latest/download/SkyrimRP-Launcher-Setup.exe"
+  },
+  "game": {
+    "requiredVersion": "1.6.640.0",
+    "supportedVersions": [
+      "1.6.640.0",
+      "1.6.1170.0"
+    ],
+    "notes": "Skyrim Special Edition 1.6.640 ou Anniversary Edition 1.6.1170",
+    "requireStrict": false
+  },
+  "server": {
+    "ip": "149.56.152.99",
+    "port": 7777,
+    "master": "",
+    "statusUrl": "https://api.brlink.site/server/status",
+    "manifestUrl": "https://api.brlink.site/launcher/manifest.json",
+    "newsUrl": "https://api.brlink.site/launcher/news.json",
+    "discordInvite": "https://discord.gg/N3cGcrthC",
+    "name": "Skyrim RP BR"
+  },
+  "packages": [
+    {
+      "id": "skyrim-platform",
+      "name": "Skyrim Platform",
+      "version": "0.25.12",
+      "target": "data",
+      "url": "https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/download/packages-v1/SkyrimPlatform-v29.zip",
+      "sha256": "64fd56ccdd742da6cf45ea4dccdfed8f6c0a4c4dda4eb203509f404d16da6526",
+      "size": 154991357
+    },
+    {
+      "id": "srp-client-hotfix",
+      "name": "Correcao do client (crash/throttle)",
+      "version": "1.0.4",
+      "target": "data",
+      "url": "https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/download/packages-v1/srp-clientfix6.zip",
+      "sha256": "641d1f119de8bbc934bbbb7aba9a1fd740d2cef1cdcb4d3d38bc6b039daf6a27",
+      "size": 258991
+    },
+    {
+      "id": "srp-front",
+      "name": "Front RP (HUD)",
+      "version": "1.0.39",
+      "target": "data",
+      "url": "https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/download/packages-v1/srp-front-v39.zip",
+      "sha256": "ba8412176f464466217a3002ca5addebea9f1ad8cf079831b5b6b73dd36b835e",
+      "size": 702682
+    },
+    {
+      "id": "client-fix-cleanup",
+      "name": "Correcao cliente duplicado",
+      "version": "1.0.0",
+      "target": "data",
+      "url": "https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/download/packages-v1/srp-client-fix-cleanup-v1.zip",
+      "sha256": "6dcf20232e59f083cd0c36cc34aa655e9a8063f6f62571853cf15f4b4b04a2c7",
+      "size": 1440
+    },
+    {
+      "id": "hud-ui",
+      "name": "HUD UI",
+      "version": "1.0.0",
+      "target": "pluginsdev",
+      "url": "https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/download/packages-v1/hud-ui.zip",
+      "sha256": "1baf47b6934b5823a4661944655ab538da7143f2647e61e59bfa3debfdc77a4f",
+      "size": 8968
+    },
+    {
+      "id": "login-ui",
+      "name": "Tela de Login",
+      "version": "1.0.0",
+      "target": "pluginsdev",
+      "url": "https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/download/packages-v1/login-ui.zip",
+      "sha256": "d696dee1b7aca3815f2656d1453791b8d9322ff46fd302774ab471d01aa7c38f",
+      "size": 3223
+    },
+    {
+      "id": "launcher-ui",
+      "name": "Launcher Desktop",
+      "version": "1.2.0",
+      "target": "pluginsdev",
+      "url": "https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/download/packages-v1/launcher-ui.zip",
+      "sha256": "151bbd89394eca4d5cafe5d9218fdf5b444e01089e08a6f23f38b6b9e35759a1",
+      "size": 7577
+    },
+    {
+      "id": "skyrim-platform-config",
+      "name": "Skyrim Platform Config",
+      "version": "1.2.0",
+      "target": "skse-plugins",
+      "url": "https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/download/packages-v1/skyrim-platform-config.zip",
+      "sha256": "35092b38d358b898fb77a2cddcb84c013b90d7a984e36c709dd6f5d2b3fe394b",
+      "size": 741
+    },
+    {
+      "id": "address-library",
+      "name": "Address Library",
+      "version": "1.0.0",
+      "target": "skse-plugins",
+      "url": "https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/download/packages-v1/address-library.zip",
+      "sha256": "6ee052af6033e6b02a30959bc48cbe0e1dc41ca76c582182b5bb4c7a89ba3329",
+      "size": 2468466
+    },
+    {
+      "id": "client-plugin",
+      "name": "Skyrim RP HUD",
+      "version": "2.3.7",
+      "target": "pluginsdev",
+      "url": "https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/download/packages-v1/skyrim-rp-hud-v2.3.7.zip",
+      "sha256": "731684e27d7fc9b7e21f1606112eb4ef127e0867a4bb3dbedd8fc3266b91997d",
+      "size": 5200
+    },
+    {
+      "id": "skyrimsouls",
+      "name": "Menus sem pausa",
+      "version": "3.1.2",
+      "target": "data",
+      "url": "https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/download/packages-v1/skyrimsouls-re-v1a.zip",
+      "sha256": "a4ce86643f6e58f826b5d2ece2e97d5a5bac178ce6bd69b5e6a78b7a4ecd2264",
+      "size": 469507
+    },
+    {
+      "id": "skse",
+      "name": "SKSE64",
+      "version": "2.02.06",
+      "target": "root",
+      "url": "https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/download/packages-v1/skse.zip",
+      "sha256": "f5c8db3d0e5a06401409cd540152327889bb257e1ac65eebdde04c98a74095f3",
+      "size": 525206
+    }
+  ]
+}
