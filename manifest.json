@@ -1,5 +1,5 @@
 {
-  "_comment": "Manifesto canonico v1.4.0 - gerado por /root/regen-manifest.py a partir dos arquivos do disco. NAO editar na mao.",
+  "_comment": "Manifesto global de distribuicao. Pacotes SRP publicados no CDN em 2026-07-19.",
   "launcher": {
     "version": "1.5.15",
     "downloadUrl": "https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/latest/download/SkyrimRP-Launcher-Setup.exe"
@@ -36,20 +36,20 @@
     {
       "id": "srp-client-hotfix",
       "name": "Correcao do client (crash/throttle)",
-      "version": "1.0.4",
+      "version": "1.0.7",
       "target": "data",
-      "url": "https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/download/packages-v1/srp-clientfix6.zip",
-      "sha256": "641d1f119de8bbc934bbbb7aba9a1fd740d2cef1cdcb4d3d38bc6b039daf6a27",
-      "size": 258991
+      "url": "https://cdn.brlink.site/launcher/files/srp-clientfix8.zip?v=1784501699",
+      "sha256": "7de8fd498b0b3614ea430482ce4b26e7962010eb515c11b10c61aa74bcc397b0",
+      "size": 258907
     },
     {
       "id": "srp-front",
       "name": "Front RP (HUD)",
-      "version": "1.0.39",
+      "version": "1.0.41",
       "target": "data",
-      "url": "https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/download/packages-v1/srp-front-v39.zip",
-      "sha256": "ba8412176f464466217a3002ca5addebea9f1ad8cf079831b5b6b73dd36b835e",
-      "size": 702682
+      "url": "https://cdn.brlink.site/launcher/files/srp-front-v40.zip?v=1784501699",
+      "sha256": "733f5a7ab22bd3d20c733a004feec4cbe26314bca0a60bd57326ff4218fb8105",
+      "size": 702491
     },
     {
       "id": "client-fix-cleanup",
@@ -113,6 +113,15 @@
       "url": "https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/download/packages-v1/skyrim-rp-hud-v2.3.7.zip",
       "sha256": "731684e27d7fc9b7e21f1606112eb4ef127e0867a4bb3dbedd8fc3266b91997d",
       "size": 5200
+    },
+    {
+      "id": "charselect-ui",
+      "name": "Tela de Personagem",
+      "version": "1.0.2",
+      "target": "pluginsdev",
+      "url": "https://cdn.brlink.site/launcher/files/srp-charselect-v101.zip?v=1784501699",
+      "sha256": "aac3683d155414a2b683681a7fb2f3e16f11a504cffa6bd83791cf35c5329843",
+      "size": 16020
     },
     {
       "id": "skyrimsouls",
