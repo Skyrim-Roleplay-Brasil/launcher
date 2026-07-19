@@ -1,7 +1,7 @@
 {
   "_comment": "Manifesto global de distribuicao. Pacotes SRP publicados no CDN em 2026-07-19.",
   "launcher": {
-    "version": "1.5.15",
+    "version": "1.5.16",
     "downloadUrl": "https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/latest/download/SkyrimRP-Launcher-Setup.exe"
   },
   "game": {
