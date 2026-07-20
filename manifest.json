@@ -36,20 +36,20 @@
     {
       "id": "srp-client-hotfix",
       "name": "Correcao do client (crash/throttle)",
-      "version": "1.0.8",
+      "version": "1.0.9",
       "target": "data",
-      "url": "https://cdn.brlink.site/launcher/files/srp-client-global-v108.zip",
-      "sha256": "7c05b74119f71b093ee5cfd9f09463a4c5256fc6d1d602a0d806ca8ce8d2b969",
-      "size": 259116
+      "url": "https://cdn.brlink.site/launcher/files/srp-client-global-v109.zip",
+      "sha256": "bdeb59673dfa1d0f3721359aa39aa50f2b7cda8b31367fe3857f7ce6c8389bb1",
+      "size": 259346
     },
     {
       "id": "srp-front",
       "name": "Front RP (HUD)",
-      "version": "1.0.44",
+      "version": "1.0.45",
       "target": "data",
-      "url": "https://cdn.brlink.site/launcher/files/srp-front-global-v144.zip",
-      "sha256": "a464572ec03804299c62a44d9765b6c544eac557489da24e5d29673b588483a0",
-      "size": 703132
+      "url": "https://cdn.brlink.site/launcher/files/srp-front-global-v145.zip",
+      "sha256": "d6d8e04c1605cc8bf713b63bd1b3beba1b34fbe254ff737b07ad23915e42269d",
+      "size": 703828
     },
     {
       "id": "client-fix-cleanup",
