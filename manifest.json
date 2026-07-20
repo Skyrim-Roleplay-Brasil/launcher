@@ -36,11 +36,11 @@
     {
       "id": "srp-client-hotfix",
       "name": "Correcao do client (crash/throttle)",
-      "version": "1.0.9",
+      "version": "1.0.10",
       "target": "data",
-      "url": "https://cdn.brlink.site/launcher/files/srp-client-global-v109.zip",
-      "sha256": "bdeb59673dfa1d0f3721359aa39aa50f2b7cda8b31367fe3857f7ce6c8389bb1",
-      "size": 259346
+      "url": "https://cdn.brlink.site/launcher/files/srp-client-global-v110.zip",
+      "sha256": "406139e7c59f00f094836639d88d47bd11a8e468bcab6f225281927930166194",
+      "size": 259912
     },
     {
       "id": "srp-front",
