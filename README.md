@@ -4,7 +4,7 @@
 
 **Launcher oficial do servidor de roleplay multiplayer Reino Alto.**
 
-[![Versão](https://img.shields.io/badge/Vers%C3%A3o-v1.5.0-38a169?style=for-the-badge)](https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/latest)
+[![Versão](https://img.shields.io/badge/Vers%C3%A3o-v1.5.22-38a169?style=for-the-badge)](https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/latest)
 [![Plataforma](https://img.shields.io/badge/Windows-x64-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/latest)
 
 </div>
@@ -35,7 +35,9 @@ Baixe a versão mais recente na página de **[Releases](https://github.com/Skyri
 ## ⚙️ Tecnologia
 
 - **Electron** (Windows x64, instalador NSIS)
-- Auto-update via `manifest.json` servido pelo CDN oficial
+- Auto-update do executável via GitHub Releases (`latest.yml`)
+- Pacotes do jogo exclusivamente via `cdn.skyrimrp.com.br`
+- Login, notícias e status via `api.skyrimrp.com.br`
 - Integração Discord RPC
 - Protocolo `reinoalto://`
 

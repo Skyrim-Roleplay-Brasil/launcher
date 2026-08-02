@@ -1,11 +1,11 @@
 {
-  "_comment": "Manifesto canonico v1.5.21 + cliente 1.0.23 (JWT, whitelist e montaria) em 2026-08-02.",
+  "_comment": "Manifesto canônico v1.5.22 + cliente 1.0.24; somente infraestrutura skyrimrp.com.br.",
   "launcher": {
-    "version": "1.5.21",
-    "sha256": "13ef1120af9806698646c05a409e86cb07d74fe0721138bb24087624d32e949c",
-    "size": 79756645,
-    "downloadUrl": "https://cdn.skyrimrp.com.br/launcher/files/SkyrimRP-Launcher-V1.5-Setup-1.5.21.exe",
-    "manualInstallUrl": "https://cdn.skyrimrp.com.br/launcher/files/SkyrimRP-Launcher-V1.5-Setup-1.5.21.exe"
+    "version": "1.5.22",
+    "sha256": "7658b335633c8d8c37c150e339f3cb81415c1ef00bbc10bc0589b97bb1edcdd7",
+    "size": 79756383,
+    "downloadUrl": "https://cdn.skyrimrp.com.br/launcher/files/SkyrimRP-Launcher-V1.5-Setup-1.5.22.exe",
+    "manualInstallUrl": "https://cdn.skyrimrp.com.br/launcher/files/SkyrimRP-Launcher-V1.5-Setup-1.5.22.exe"
   },
   "game": {
     "requiredVersion": "1.6.640.0",
@@ -39,11 +39,11 @@
     {
       "id": "srp-client-hotfix",
       "name": "Cliente seguro (JWT, whitelist, magia e montaria multiplayer)",
-      "version": "1.0.23",
+      "version": "1.0.24",
       "target": "data",
-      "url": "https://cdn.skyrimrp.com.br/launcher/files/srp-client-global-v123-auth-mount.zip",
-      "sha256": "5346134d09f386badbc1b02ceeb999dfde3387bac941df1478a3ea35b71b43b6",
-      "size": 264833
+      "url": "https://cdn.skyrimrp.com.br/launcher/files/srp-client-global-v124-mount-activate.zip",
+      "sha256": "11641b930b0e7f55ddf84ffde47acaaf1cee5cda02abb4cf0fda6cac0f660141",
+      "size": 265246
     },
     {
       "id": "srp-front",
