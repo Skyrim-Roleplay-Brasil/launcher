@@ -1,5 +1,5 @@
 {
-  "_comment": "Manifesto canonico v1.5.23 + cliente 1.0.24. Pacotes seguem em cdn.brlink.site porque o allowlist do <=1.5.20 so aceita brlink; o 1.5.23 aceita os dois dominios. Migrar para skyrimrp.com.br so quando nao houver mais cliente <1.5.23 em campo.",
+  "_comment": "Manifesto canonico v1.5.23 + cliente 1.0.26. Pacotes seguem em cdn.brlink.site porque o allowlist do <=1.5.20 so aceita brlink; o 1.5.23 aceita os dois dominios. Migrar para skyrimrp.com.br so quando nao houver mais cliente <1.5.23 em campo.",
   "launcher": {
     "version": "1.5.23",
     "sha256": "2ffa7ab1e9e4dd89da19521f9fcb46d9591e5df8b464c867b0f56d7a7924cb8b",
@@ -39,11 +39,11 @@
     {
       "id": "srp-client-hotfix",
       "name": "Cliente seguro (JWT, whitelist, magia e montaria multiplayer)",
-      "version": "1.0.24",
+      "version": "1.0.26",
       "target": "data",
-      "url": "https://cdn.brlink.site/launcher/files/srp-client-global-v124-mount-activate.zip",
-      "sha256": "11641b930b0e7f55ddf84ffde47acaaf1cee5cda02abb4cf0fda6cac0f660141",
-      "size": 265246
+      "url": "https://cdn.brlink.site/launcher/files/srp-client-global-v126-mount-trace.zip",
+      "sha256": "d866b8317ebc4cbebafd7d57b6203a4ebf19e3e5e881345750d2df7f30e9be6c",
+      "size": 263193
     },
     {
       "id": "srp-front",
