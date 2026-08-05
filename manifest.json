@@ -39,20 +39,20 @@
     {
       "id": "srp-client-hotfix",
       "name": "Cliente seguro (JWT, whitelist, magia e montaria multiplayer)",
-      "version": "1.0.26",
+      "version": "1.0.30-mount-transitions-canary2",
       "target": "data",
-      "url": "https://cdn.brlink.site/launcher/files/srp-client-global-v126-mount-trace.zip",
-      "sha256": "d866b8317ebc4cbebafd7d57b6203a4ebf19e3e5e881345750d2df7f30e9be6c",
-      "size": 263193
+      "url": "https://cdn.brlink.site/launcher/files/srp-client-global-v130-mount-transitions-canary2.zip?v=130-mount-transitions-canary2",
+      "sha256": "a1eb0be48a3bdfa550c0a0f4497b4834f6d4c7ce07a8a636771d33b1e52e70b9",
+      "size": 266694
     },
     {
       "id": "srp-front",
       "name": "Front RP (HUD)",
-      "version": "1.0.120",
+      "version": "1.0.121",
       "target": "data",
-      "url": "https://cdn.brlink.site/launcher/files/srp-front-global-v219.zip",
-      "sha256": "7e793ee382468c67b45fca3fd04568ae742d0757068bcc618f36ef2ad425e0f0",
-      "size": 811679
+      "url": "https://cdn.brlink.site/launcher/files/srp-front-global-v221.zip",
+      "sha256": "773a7651d3a040a4e97ad2eb62ddd42b0533aadee2d4c2f91506eb3f45be421b",
+      "size": 814037
     },
     {
       "id": "client-fix-cleanup",
