@@ -48,11 +48,11 @@
     {
       "id": "srp-front",
       "name": "Front RP (HUD)",
-      "version": "1.0.123",
+      "version": "1.0.124",
       "target": "data",
-      "url": "https://cdn.brlink.site/launcher/files/srp-front-global-v223.zip",
-      "sha256": "929a646d694ec414f1e96819124c2dc0c9261dac36859ece1dc1fdf2b16e71a2",
-      "size": 814039
+      "url": "https://cdn.brlink.site/launcher/files/srp-front-global-v224.zip",
+      "sha256": "68586fb9f4dd9a700c8b26ad8be36b974c64b7a174224b907f4ec42fd6d68fb9",
+      "size": 814299
     },
     {
       "id": "client-fix-cleanup",
