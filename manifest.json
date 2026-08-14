@@ -39,11 +39,11 @@
     {
       "id": "srp-client-hotfix",
       "name": "Cliente seguro (JWT, whitelist, magia e montaria multiplayer)",
-      "version": "1.0.30-mount-transitions-canary2",
+      "version": "1.0.31-recognition-p05j",
       "target": "data",
-      "url": "https://cdn.brlink.site/launcher/files/srp-client-global-v130-mount-transitions-canary2.zip?v=130-mount-transitions-canary2",
-      "sha256": "a1eb0be48a3bdfa550c0a0f4497b4834f6d4c7ce07a8a636771d33b1e52e70b9",
-      "size": 266694
+      "url": "https://cdn.brlink.site/launcher/files/srp-client-global-v131-recognition-p05j.zip?v=131-recognition-p05j",
+      "sha256": "3f1f3ac3b830abd85ba5bb7f3bce4b87be104ee130f220e37951be624087ad53",
+      "size": 287504
     },
     {
       "id": "srp-front",
