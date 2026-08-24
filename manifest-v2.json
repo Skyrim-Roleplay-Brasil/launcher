@@ -1,0 +1,2933 @@
+{
+  "_RELEASE": "Release publico 1.7.99 congelado em 2026-08-24. Sete ZIPs principais publicados e verificados por SHA-256; o grafo validado de 12 packages entrega 162 arquivos REQUIRED. Front RC5.2 e o bloqueio fail-closed de tints integram srp-client-1799. client-plugin-1799 usa o HoldGov autoritativo auditado. SkyrimSouls permanece excluido somente do perfil 1.7.99; client-1.6 e seus artefatos permanecem preservados para rollback operacional.",
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-24T00:00:00-03:00",
+  "launcher": {
+    "version": "1.6.0",
+    "minVersion": "1.6.0",
+    "forceUpdate": false,
+    "notes": "1.6.0 e' o launcher que sabe ler schemaVersion 2 e canais. O 1.5.23 em campo NAO entende este arquivo — por isso o manifest v1 continua servido no path atual ate a base migrar."
+  },
+  "flowPolicy": {
+    "bootstrap": {
+      "writesGameFiles": false,
+      "notes": "Descobre instalacao/runtime/canal e le estado; nao repara."
+    },
+    "update": {
+      "engine": "manifest-diff-staging-sha256-atomic-activate",
+      "allowedFromPlay": true,
+      "mayInvokeVerify": false,
+      "mayInvokeRepair": false
+    },
+    "verify": {
+      "writesGameFiles": false,
+      "notes": "Somente leitura e relatorio de divergencias."
+    },
+    "repair": {
+      "automatic": false,
+      "requiresExplicitUserAction": true
+    },
+    "play": {
+      "legacyEnsureUpToDate": false,
+      "mayInvokeVerify": false,
+      "mayInvokeRepair": false,
+      "startOnlyAfterActiveProfileValidation": true
+    }
+  },
+  "server": {
+    "ip": "game.skyrimrp.com.br",
+    "port": 7777,
+    "notes": "hostname, nao IP cru. O LAB usou 179.198.100.240 por ser manifest sintetico local."
+  },
+  "channels": {
+    "canary": {
+      "clientProfile": "client-1.7.99",
+      "allowProfileIds": [],
+      "notes": "Canal inativo nesta promocao publica; nenhuma identidade especial e nenhuma allowlist tecnica."
+    },
+    "beta": {
+      "clientProfile": "client-1.7.99",
+      "allowProfileIds": [],
+      "notes": "Canal inativo nesta promocao publica; nenhuma identidade especial e nenhuma allowlist tecnica."
+    },
+    "stable": {
+      "clientProfile": "client-1.7.99",
+      "allowProfileIds": null,
+      "notes": "TODOS os usuarios autorizados do SkyrimRP recebem client-1.7.99 pelo fluxo normal."
+    }
+  },
+  "clientProfiles": {
+    "client-1.6": {
+      "runtime": {
+        "exe": "SkyrimSE.exe",
+        "supportedVersions": [
+          "1.6.640.0",
+          "1.6.1170.0"
+        ],
+        "requireStrict": false
+      },
+      "packages": [
+        "skyrim-platform",
+        "srp-client-hotfix",
+        "srp-front",
+        "client-fix-cleanup",
+        "hud-ui",
+        "login-ui",
+        "launcher-ui",
+        "skyrim-platform-config",
+        "address-library",
+        "client-plugin",
+        "charselect-ui",
+        "srp-murais",
+        "skyrimsouls",
+        "skse"
+      ],
+      "forbiddenPackages": [
+        "skse-1799",
+        "skyrim-platform-1799",
+        "address-library-1799",
+        "srp-client-1799",
+        "skyrim-platform-config-1799"
+      ],
+      "notes": "Perfil INALTERADO. E' exatamente o que esta publicado hoje. Nao mexer."
+    },
+    "client-1.7.99": {
+      "runtime": {
+        "exe": "SkyrimSE.exe",
+        "supportedVersions": [
+          "1.7.99.0"
+        ],
+        "requireStrict": true,
+        "exeSize": 37909416,
+        "notes": "O jogo 1.7.99 vem da Steam. NAO e' redistribuivel e NAO esta em nenhum pacote. requireStrict=true: se o exe nao for 1.7.99, o launcher NAO pode aplicar este perfil."
+      },
+      "packages": [
+        "skse-1799",
+        "skyrim-platform-1799",
+        "skyrim-platform-runtime-1799",
+        "address-library-1799",
+        "srp-client-1799",
+        "skyrim-platform-config-1799",
+        "login-ui",
+        "launcher-ui",
+        "client-plugin-1799",
+        "charselect-ui",
+        "srp-murais",
+        "client-fix-cleanup"
+      ],
+      "forbiddenPackages": [
+        "skse",
+        "skyrim-platform",
+        "address-library",
+        "srp-client-hotfix",
+        "skyrimsouls"
+      ],
+      "forbiddenFiles": [
+        "Data/SKSE/Plugins/versionlib-1-6-1170-0.bin",
+        "skse64_1_6_1170.dll",
+        "Data/SKSE/Plugins/SkyrimSoulsRE.dll",
+        "Data/SKSE/Plugins/SkyrimSoulsRE.ini"
+      ],
+      "forbiddenRoutines": [
+        "ensureUpToDate",
+        "installPackages",
+        "ensureAddressLibrary",
+        "guardLoadOrder",
+        "forceBrowserBackendTilted",
+        "ensureSkyrimIniFlags",
+        "clearCefCache",
+        "writeClientSettings"
+      ],
+      "notes": "forbiddenPackages sao os 4 pacotes 1.6 que DESTROEM uma instalacao 1.7.99 se aplicados. O front RC5.2 efetivo e gerenciado por srp-client-1799; srp-front v1 nao faz parte deste perfil. client-plugin-1799 usa o HoldGov pós-mercado auditado. SkyrimSouls foi excluido deste perfil: o smoke 1.7.99 passou sem a DLL ativa e nao existe dependencia SRP obrigatoria comprovada. 2026-08-23 (2a auditoria): 'skyrimsouls' passou de simplesmente ausente para explicitamente proibido, e a DLL/INI entraram em forbiddenFiles — a exclusao deixa de depender so da allowlist.",
+      "knownPluginGaps": {
+        "status": "RESOLVIDO 2026-08-23",
+        "descricao": "A lacuna de tres plugins ativos nao entregues foi fechada por classificacao com evidencia.",
+        "required": {
+          "Data/Platform/PluginsDev/srp-whiterun-market.js": "REQUIRED — entregue em client-plugin-1799 v2.3.16-srp1799.2",
+          "Data/Platform/PluginsDev/srp-deathfocus.js": "REQUIRED — entregue em client-plugin-1799 v2.3.16-srp1799.2"
+        },
+        "excluded": {
+          "Data/Platform/PluginsDev/srp-itemnames.js": "EXCLUDED/STALE — usa srp:learnNames, removido do servidor; sucessor srp:resolveNames esta em skymp5-client.js (pacote srp-client-1799) e no front build.js"
+        },
+        "evidencia": "skyrim-platform.log do smoke: 32 JsEngine::RunScript() para 16 .js top-level e nenhum dos quatro na lista de \"Found unprocessed file\". Contratos conferidos read-only no gamemode LIVE E45DF9EE."
+      },
+      "neverPackage": {
+        "files": [
+          "Data/Platform/PluginsDev/srp-emote-lab.js",
+          "Data/Platform/Plugins/skyrim-aa-r2-logcapture.js"
+        ],
+        "motivo": "Ferramentas de LAB/diagnostico. srp-emote-lab.js se autodeclara 'NAO E PRA DEPLOY'. skyrim-aa-r2-logcapture.js foi criado em 2026-08-23 so para capturar printConsole na rodada R2."
+      },
+      "packagingReproducibility": {
+        "status": "FIXED",
+        "toolchain": "Windows PowerShell 5.1.26100.9168 / .NET Framework 4.8.9337.0",
+        "algorithm": ".NET ZipArchive / Optimal / entries sorted ordinal / timestamp 1980-01-01T00:00:00Z / externalAttributes=0",
+        "prova": "Os seis ZIPs foram construidos duas vezes em diretorios temporarios independentes sob o mesmo runtime; SHA identico em 6/6.",
+        "historico": "Quatro ZIPs vinham de PowerShell 7 / .NET 5+, runtime que nao esta instalado nesta maquina. Foram reconstruidos sob 5.1 e os originais ficaram preservados em packaging-1799/_legacy-ps7 apenas como registro de proveniencia.",
+        "correcaoDeFerramenta": "BUILD-PACKAGES-1799.ps1 usava [IO.File]::Move de tres argumentos (.NET 5+), que falhava DEPOIS de construir e validar tudo. Trocado por Copy+Delete."
+      },
+      "tintCapture": {
+        "status": "CANDIDATO — requer smoke isolado",
+        "causaRaiz": "SKSE 2.3.0 fixa offsetof(PlayerCharacter, tintMasks)==0xB18 (GameReferences.h) e tArray{entries@00,capacity@08,count@10}. Em 1.7.99 o array real esta em 0xB20, entao o SKSE le entries de cima de resistArrestCrime (0xB18) e desreferencia lixo.",
+        "offsets1799": {
+          "data": "0xB20",
+          "capacity": "0xB28",
+          "size": "0xB30",
+          "overlayPtr": "0xB38",
+          "classificacao": "CANDIDATE"
+        },
+        "correcao": "Natives de leitura novas em TESModPlatform (GetTintCaptureState/GetNumTints/GetNthTintType/GetNthTintColor/GetNthTintTexturePath) usando GetTintList() da CommonLibSSE. Nenhum offset codificado no SkyrimPlatform.",
+        "binarioCandidato": "E:/SKYRIMRP/build/srp-1799-candidate/SRP-1.7.99-CANDIDATE-002-TINTREAD-LAB/artifacts (LAB apenas, NAO instalado no golden)",
+        "naoPublicado": true
+      }
+    }
+  },
+  "packages1799": [
+    {
+      "id": "skse-1799",
+      "name": "SKSE 2.3.0 (runtime 1.7.99)",
+      "version": "2.3.0",
+      "channel": [
+        "canary",
+        "beta"
+      ],
+      "runtime": "1.7.99.0",
+      "target": "root",
+      "url": "https://cdn.skyrimrp.com.br/launcher/files/1799/skse-1799-2.3.0.zip",
+      "files": [
+        {
+          "version": "2.3.0",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "skse64_loader.exe",
+          "size": 255752,
+          "sha256": "3e0710af981c9b8cb501149d8ca9e65838c6a60d64652e7758ee133629e6b6ad",
+          "required": true,
+          "source": "golden-read-only; SKSE 2.3.0 runtime 1.7.99",
+          "package": "skse-1799",
+          "origin": "golden-read-only; SKSE 2.3.0 runtime 1.7.99",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Required by the closed 1.7.99 package audit for skse-1799"
+        },
+        {
+          "version": "2.3.0",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "skse64_1_7_99.dll",
+          "size": 1210120,
+          "sha256": "97105c42215472c4565de68bdb70786c30e9df830a0bb8b700b2365cdc872930",
+          "required": true,
+          "source": "golden-read-only; SKSE 2.3.0 runtime 1.7.99",
+          "package": "skse-1799",
+          "origin": "golden-read-only; SKSE 2.3.0 runtime 1.7.99",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Required by the closed 1.7.99 package audit for skse-1799"
+        }
+      ],
+      "size": 555963,
+      "sha256": "5d339bec4a7387f65cde44aae5188d99eb40e5e5aea0fc5886e86d0cc41c5ea0"
+    },
+    {
+      "id": "skyrim-platform-1799",
+      "name": "Skyrim Platform + Patch 09",
+      "version": "2.9.0-patch09",
+      "channel": [
+        "canary",
+        "beta"
+      ],
+      "runtime": "1.7.99.0",
+      "target": "data",
+      "url": "https://cdn.skyrimrp.com.br/launcher/files/1799/skyrim-platform-1799-2.9.0-patch09.zip",
+      "files": [
+        {
+          "version": "2.9.0-patch09",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/SKSE/Plugins/SkyrimPlatform.dll",
+          "size": 149504,
+          "sha256": "fc2daa5a78489164a9fcd8718f48acec291bbae100ab06cb901a9b3e9c7a7afb",
+          "required": true,
+          "source": "golden-read-only; Patch 09 runtime 1.7.99",
+          "package": "skyrim-platform-1799",
+          "origin": "golden-read-only; Patch 09 runtime 1.7.99",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Required by the closed 1.7.99 package audit for skyrim-platform-1799"
+        },
+        {
+          "version": "2.9.0-patch09",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/SKSE/Plugins/MpClientPlugin.dll",
+          "size": 1477632,
+          "sha256": "0b41869d785db850fc287d7cb86a48afc56bd829b46bc6ecc66db968cf272211",
+          "required": true,
+          "source": "golden-read-only; byte-identical ao SkyrimPlatform-v30 publicado",
+          "package": "skyrim-platform-1799",
+          "origin": "golden-read-only; byte-identical ao SkyrimPlatform-v30 publicado",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Required by the closed 1.7.99 package audit for skyrim-platform-1799"
+        },
+        {
+          "version": "2.9.0-patch09",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/RuntimeDependencies/SkyrimPlatformImpl.dll",
+          "size": 15671808,
+          "sha256": "dd5eefcf021dd8f63d3f2aa381df16bf3681b835847db996e6794d83f7633feb",
+          "required": true,
+          "source": "golden-read-only; Patch 09 runtime 1.7.99",
+          "package": "skyrim-platform-1799",
+          "origin": "golden-read-only; Patch 09 runtime 1.7.99",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Required by the closed 1.7.99 package audit for skyrim-platform-1799"
+        }
+      ],
+      "size": 5938524,
+      "sha256": "51ba0ebefd0e42af78a2595455d17bb8c9814fda32e42649a02501ea280580fa"
+    },
+    {
+      "id": "address-library-1799",
+      "name": "Address Library 1.7.99",
+      "version": "1.7.99.0",
+      "channel": [
+        "canary",
+        "beta"
+      ],
+      "runtime": "1.7.99.0",
+      "target": "data",
+      "url": "https://cdn.skyrimrp.com.br/launcher/files/1799/address-library-1799-1.7.99.0.zip",
+      "files": [
+        {
+          "version": "1.7.99.0",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/SKSE/Plugins/versionlib-1-7-99-0.bin",
+          "size": 2260388,
+          "sha256": "184fca0c834e0d2523b450d18ea32c9fbf9f6295e88e936712b7360f1fccc4ec",
+          "required": true,
+          "source": "golden-read-only; Address Library runtime 1.7.99",
+          "package": "address-library-1799",
+          "origin": "golden-read-only; Address Library runtime 1.7.99",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Required by the closed 1.7.99 package audit for address-library-1799"
+        }
+      ],
+      "size": 667522,
+      "sha256": "480f7b2c3e141775d72b65e0b432b92e3ec91a9f4c7cbf9bc120f1d3f5dd9631"
+    },
+    {
+      "id": "srp-client-1799",
+      "name": "Cliente SRP 1799 + Front RC5.2 completo + captura de tints via TESModPlatform",
+      "version": "1.0.34-srp1799-parity1",
+      "channel": [
+        "canary",
+        "beta"
+      ],
+      "runtime": "1.7.99.0",
+      "target": "data",
+      "url": "https://cdn.skyrimrp.com.br/launcher/files/1799/srp-client-1799-1.0.34-srp1799-parity1.zip",
+      "files": [
+        {
+          "version": "1.0.33-srp1799",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Plugins/skymp5-client.js",
+          "size": 1555844,
+          "sha256": "4598cd4ae627bf30cfe79b8c4e4417845130374fe55bb878664ca120787fdb67",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "source LAB controlado; v131 + workaround SRP-1799 + bloqueio determinístico de UpdateAppearance quando tints estão indisponíveis",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Required by the closed 1.7.99 package audit for srp-client-1799"
+        },
+        {
+          "version": "1.0.34-srp1799-parity1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Plugins/skyrim-rp-hud.js",
+          "size": 401,
+          "sha256": "a2e468868fb33529873c9fe7516963d2934adc9166cf5f84379939b8a6a4c1f5",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimRP no-op HUD neutralizer, byte-identical to the already packaged PluginsDev copy",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Required at the Plugins path to overwrite legacy HUD overrides during upgrades; harmless on clean installs"
+        },
+        {
+          "version": "RC5.2",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/index.html",
+          "size": 1778,
+          "sha256": "312bba187169f53babd5dc1811660db65a66e778567797f9866b9742e3057d9c",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "golden-read-only; front efetivo auditado",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Required by the closed 1.7.99 package audit for srp-client-1799"
+        },
+        {
+          "version": "RC5.2",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/build.js",
+          "size": 3927926,
+          "sha256": "973b0dc3d06704cc0b03e0f27100c470aa0d949fe1f528d47bce4732b69fca0b",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "golden-read-only; RC5.2 com Mochila V3",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Required by the closed 1.7.99 package audit for srp-client-1799"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/00e4a2200c3e5ae71d67.ttf",
+          "size": 98708,
+          "sha256": "a04c52508cbb1ca87d22814100ae405ad63f1c41a9459853b7c874a9647169e2",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/012ba60b5cafa40f9e478f978761f33d.svg",
+          "size": 1532,
+          "sha256": "8c24d2ae3a537610d36def102203d2ee4e36cf4ee191f1a50447cf17df7a480a",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/05bc1c771a7f9d9fa958eab5889558f7.svg",
+          "size": 7117,
+          "sha256": "19e6896e7764e345e4f0eb46eda90956276ce63445b2602314594d7224bedc99",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/06a298c40e1d6dc99a81d63276ee6161.svg",
+          "size": 3239,
+          "sha256": "84b0e77a03958ff75c4575d5cf9ce6a973e54bb348582de74a8121326f711d13",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/07863f7f6cd3e41d2d4dd98555709017.svg",
+          "size": 23513,
+          "sha256": "070adef7526097bd58ae7b967aca9e88fb544c9c117dbf66a92a0fcf9f1480f2",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/09424635ea350f722acbcde754761c4b.wav",
+          "size": 1059988,
+          "sha256": "2c02feeb4cfa52885811b1f24ee6d795b2a5a199565a873bfd0b271fe34879eb",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/0acb800c49cbe871dacdb686546aa5de.svg",
+          "size": 1025,
+          "sha256": "a39bc6820a42f2a93ec03d9b0530e80e6e920a90b84ba1db002a02cea76a2d59",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/1c1a2f681c2e09c52e62e2eea731fe11.wav",
+          "size": 226444,
+          "sha256": "076b14e832f00f295a8d478ba5133f971790ee622aa12555c9b3a4ce7d594ae1",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/1e9847ef902c2160f0627bc8b5d48e5a.wav",
+          "size": 529024,
+          "sha256": "60389467ae04875cb1f22eaa4c8dd5ca2697e2d19d4ab2ba834b8719433a045a",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/1f08438ecd0badfb463bbfa1b6a00b70.svg",
+          "size": 2883,
+          "sha256": "13fd8bd57d6f276ce0d04b08e132d7c13874976e0302ed9c9dff596f3d7dfe99",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/2217324cbcf6c27a5a272e6b48606682.mp3",
+          "size": 114937,
+          "sha256": "63d669e4cbf0417f66eb570fba9fa7eb60135bf70292d5115ab3ee53140e888b",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/24f47c642fc63bf9f479df7cb8e4746a.wav",
+          "size": 37772,
+          "sha256": "f240c90dd6b3adfe875b4c493f8ae09befc1275a8bbff9af18a7ad6df261ee30",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/268a0df3f0e2c23d1ea6.ttf",
+          "size": 138872,
+          "sha256": "c36b27da593c16a5ef3cd9e967d5a085e93e33176ec7187afff70ac27e7a78db",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/29359f1c6135098e82121dce53128a35.svg",
+          "size": 853,
+          "sha256": "8e87a292fcf6b22d8a90a48a04f4f97d06b0657e713f604c4d20ee86ef1d5aff",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/293db3d76ab19fe8228fec890f8054c0.svg",
+          "size": 1155,
+          "sha256": "8323509b0cf84cf954e856f75f4eea93ad49461ac1e058d4352d36f00fe188ff",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/2d45d5f75c74bbf47f231dd420bb50e4.svg",
+          "size": 2012,
+          "sha256": "26f367d9ab4c6aa0201706e2490524f74303a4c4c7ac2736871ea3f7364902f5",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/34d7c23d97684ec11c66319566850bee.svg",
+          "size": 368,
+          "sha256": "081b2b8326b7e883edab95998cfe9ab238fd1e9041aba22575b3ce6e7f4243bc",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/3cd913091acd4077c4d1fee28f43395a.mp3",
+          "size": 13909,
+          "sha256": "2ee55053c7856182a6d18c0928a805f9facf35359ed2998913c8a4ca90d107df",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/3d94b26bad1a62066baf7a505fa7a26c.mp3",
+          "size": 114937,
+          "sha256": "837b22a1854327fd28ccec3327a3e9ed8a1c71413cd89630e9bd7c7e39ce77a4",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/4240b22a3e4ea3d863083d8cc66dc9d2.svg",
+          "size": 8946,
+          "sha256": "1ec1f2264af61ae792b8c23d128bf01316e3710a22a234e6ea915dbb6ee3d76c",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/434474aac1ca25361cc7f9fadc87043a.svg",
+          "size": 418,
+          "sha256": "b1d9d0a4272da5e3d8cfeabe1338b6db025abd6aa08c88c79182dc912805ce91",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/45255c99ec0c0f37fbadb45928198869.svg",
+          "size": 2020,
+          "sha256": "785c67ae179827282d03b1ce8277089e791bd731c2cfd20da801f9a47c541149",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/46e7c235111fa294ae294e52361b1a64.svg",
+          "size": 817,
+          "sha256": "1a893d237553fb2d948451a2e460e0f33efab55c7bc156ce8ccedc7b70dcda06",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/4c9effcbaeeb2d8ca70ae680ac1e3b9a.wav",
+          "size": 45578,
+          "sha256": "7f620d14a6f4239058ea79ff1b9a434231c19b6aa16ae2282c303c5a36ab9bd9",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/5183d83cbcb7262bc8ce4325c6b83ab1.svg",
+          "size": 420,
+          "sha256": "ab1dd2b409ccc059938b586a66c2fb5b3c212b68e4bad2e79d9d47aff0bfd780",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/51d5d9ae7e81b615957cd01b3775d915.svg",
+          "size": 7693,
+          "sha256": "5bfa2b8b3237966628157022d27243bb8fa5d094241a769ab122941c8e055fc3",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/5c2874217cce8f12078a4c478c7760a8.svg",
+          "size": 776,
+          "sha256": "7c1d33bb50e3d25463069600c04c70cdb6024d09872da04874e9d096e28c7a09",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/615881216ef2ce0dd5609a3cd7f32a26.svg",
+          "size": 461,
+          "sha256": "0429d02264599fd4076b7814c1ef19d33497fa0fab67240b86f6afed8d35b631",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/6696c58666d1bdb9c8965ed5784bc978.mp3",
+          "size": 13904,
+          "sha256": "efe11779ea32c2a2f91ae23caa43cf703b7cd12601d780561f2cab1e121efcda",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/6f802bf60c545304b09e.ttf",
+          "size": 94836,
+          "sha256": "4ef9ca157301509ccc45ba69fd2544140be3281fce1a21ce2d945e5c306e66d8",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/70828fb0d81d34baf7216b141e84512a.svg",
+          "size": 338,
+          "sha256": "ea6338d3133e6aef21d382dca83719e63834e52beee6dd34fb15b3c0d7db49b6",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/7368c872f5c628c86f6a52fbd83e5e36.svg",
+          "size": 301,
+          "sha256": "5473c09e1cf6d2f7837630f72f31fed121b99e7d9cab8866d538fce24b253cb9",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/76cbeb799fc98908a589dfcf1b0df4c6.svg",
+          "size": 2020,
+          "sha256": "534ff11422e247610d704f654e8154ac4438f5cdfd2c58d0153f2b4f9e440bd1",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/79a2d684ce0ce231b4fc4ae00462abbd.svg",
+          "size": 1538,
+          "sha256": "e9985eb41f6023d05d4cd2dbf09df4e148cd818fce30d734801458b46d7d07b9",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/855bfaf67c57745958d3.ttf",
+          "size": 74128,
+          "sha256": "6f1fa487d1a00791774f4d452259672c96e1fb8039e6a50c2c2323498505f4e7",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/8725285acc017513ed15441d664312d7.svg",
+          "size": 1100,
+          "sha256": "16ec18266c05335fcbce12990aa9eaedac722d762e3104711963e6a807babfbf",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/88a868e753f79f8cb51565dd11b3d69f.wav",
+          "size": 993886,
+          "sha256": "b97be0e274855e025a35eaa1146496bf9afe5c8ed1b7ad7a6cd03c6484bb7a8b",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/95ef521334d6e74aca76d7ef28fd11a7.svg",
+          "size": 1553,
+          "sha256": "767658ddbfb9002445c3a419487bbb174bdd5407702998473c8ca96b2a44382b",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/9910e73e7cbd8453d7b7a336a98600b3.mp3",
+          "size": 114937,
+          "sha256": "ae043741ad4929588edd35b929208790e99d9ed62ec1557819dc68d62095b66a",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/9c26de6addf1f2d8b12b6002ae854b95.svg",
+          "size": 2012,
+          "sha256": "b6fff0835c9b628166717cbfb5dd97bbfd733e10aac3e7644056bcd14c775c8c",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/9daf4db75b4c8a2bb5a817f052e4d7a9.svg",
+          "size": 327,
+          "sha256": "bd4a02d63a215b7973a9d47c39614314335a1bbfb597b247286316bd001a720a",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/a0992837692e10783ca95e802b0c888f.mp3",
+          "size": 114937,
+          "sha256": "779b0a8496094a8a508987ca0116faf679c4a21217c54bff8b58822293a8c98e",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/a13807eed63afde04cb7be12e93604c6.svg",
+          "size": 5393,
+          "sha256": "d01eb3bb4d052fe1e99a7e566e68a16f7bc09a34257ce5ec69527e5ee8ddd10b",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/a72e8754c0389c9050a7ff03a97c8913.svg",
+          "size": 4167,
+          "sha256": "e6f7beeeb7644564edd7a444eb5579f71f2af9e6715c0de3d53da55f36e5a56e",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/a8819417669964685168bb2be41a83ba.mp3",
+          "size": 13909,
+          "sha256": "41b3ad13a1f0fab6118605e13bd64b8e40f87ea184519af687f369a8459e5dd8",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/ad1f817dd17374e2bd7486b3a5ac47a8.svg",
+          "size": 707,
+          "sha256": "85f1ebf9de7874062eb0b48fe249cd27fc93de97d92a6c73a2fead6ed2373753",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/b2422b6faed4209b53b16946877b5d52.svg",
+          "size": 5488,
+          "sha256": "41bca976f620f48ba339a54bf8bde948f01e873b04b3ad7dc53c483112361ce0",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/b504fd8bc5ee0f86635573d4a74b9778.svg",
+          "size": 2602,
+          "sha256": "dbc68527995ce87e7e3bf920eb96f6d28b00ecf890cc691b4d384f1481f11e98",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/ba7f86afe59d769feb36fbaa88a5faca.svg",
+          "size": 1547,
+          "sha256": "2b474f1daa684bea552e08a77e7905ce1daa8e7583ecea08d0b09be183d1e5ac",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/bcbf38a48fe84a5bf9ee14778d6833e2.mp3",
+          "size": 114937,
+          "sha256": "4fb4b4e7fa545196b62f2c7531bc150b9215a7f74cd1b523699a955ec73cc045",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/c1aa44800eaab2708600c244af65efb4.mp3",
+          "size": 114937,
+          "sha256": "3b3dcbffd4803b38658b3f9015f79f9af75272d71ed8544e79cacd4a1819a090",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/c3f0ce7307ae5d17c8a0a6faedb739fe.svg",
+          "size": 281,
+          "sha256": "ea190c8be3698380ea95364b8dcf6ac46e215b00ba88d9969dca5d82d3e7f783",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/c5ce282718fc847f993170a705c22125.svg",
+          "size": 2838,
+          "sha256": "ff2fe576807a5d3d5e654b3e83408d0cfe8b585b1dd55316bd546e9a3516abf0",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/c607cf803e8ca2a885e1bd6141999c6d.svg",
+          "size": 11337,
+          "sha256": "4ce425e12247c5d4f17efac9cb4be36bb9229fb037f564b1128a5cae867410b5",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/c97f9a61534aa6adb5ce52e0a909f328.svg",
+          "size": 362,
+          "sha256": "9de12df673479dbd6f4c2c88fb8e44128ffd1134190baea324f61cf7f1bd735f",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/cb339e63ba0a96c297fad9db03e15565.svg",
+          "size": 282,
+          "sha256": "d89a5af6c2cb8ab64cc329af4ff8f5008c9f3ccc93e5510771cfbfa42db4d912",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/cf57e7f8f09ad647e4cd6be3c8b70ebe.svg",
+          "size": 4882,
+          "sha256": "5e3a5d000408dce600efd44bccac4cfcd86fb08e4088859ad9a660a93008e3d7",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/d016f173d0d647e6cbe4c46ee74abb05.svg",
+          "size": 171,
+          "sha256": "8089581b43571f52144aa1ebfdab5739e23beac3d15912baf578db59c8063713",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/d0c143bd3bf8a5a13950964032daddb0.mp3",
+          "size": 13909,
+          "sha256": "4eede13578c6883846f932560cbef1ce2bb57e4ffbee0f5221c0a15a9f11cb5e",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/d213051bb6f28a25fb26.ttf",
+          "size": 1112,
+          "sha256": "a9acf3c0f5fad1abe94f9d54bdf03ca4435e5b497d7c273501ebc200acb44bd2",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/e197a558b8027cfddbdfca28a6e01ba8.mp3",
+          "size": 13909,
+          "sha256": "b9cff5464a5b59cdbae87d0fe5b06e6e85e6e0cb7e401823e5bf66bd191e0c98",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/e48234a46f0ec154aaffe69b8d05a247.mp3",
+          "size": 13909,
+          "sha256": "463fa4f1e1d6d286ddba2eeb4b674b4e74e79f32100518d11550a3bebb3965a8",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/ef92c2ecafd152e547c2f9296ce6956a.svg",
+          "size": 3066,
+          "sha256": "0d41f4bed3e39ea302157c3298930618902e729fcd998fc26433d9d9a578fbfc",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/f4d6dc3e7665a2c2fc6d.png",
+          "size": 80,
+          "sha256": "23ee7819a9f3ea94671b6736b1ef28059c736c1d6dae484d941481eadc4a4269",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/f52adb1983ad2b6fb0a30f8e9032c125.mp3",
+          "size": 85680,
+          "sha256": "fe7fecbc8b9a13e9722faec3e8eea3dcf8a5df5221f5b0886a9aca98303b5511",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/fb344395b65fad4dc9b2b4dbecaaf9ae.svg",
+          "size": 413,
+          "sha256": "68a98bd96cd84cd16a7b2eda750d19b26ab3de06dd6fafd01b578ea135c131e5",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/fdf086661e1600f95a34.ttf",
+          "size": 134516,
+          "sha256": "cc14fce90828f9687635b0483dd9deadd66cacc4d71e2be515e11113c2f1ec34",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        },
+        {
+          "version": "RC5.2-assets",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/UI/ffb48dba84edac2a01a89b25c3ba270e.mp3",
+          "size": 84635,
+          "sha256": "9394bbd9e91a256f2af211f932f5ba70e3a18a0f0ec4385a2a019e0bf674b89b",
+          "required": true,
+          "package": "srp-client-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; asset hash is identical in upstream artifact and golden reference",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Directly referenced by Data/Platform/UI/build.js"
+        }
+      ],
+      "size": 4437131,
+      "sha256": "f389630128a2c7f5de59b8ad0eac4956293e5669388556f77cfc33c8d6406fe9"
+    },
+    {
+      "id": "client-plugin-1799",
+      "name": "Plugins de cliente SRP (HoldGov autoritativo + Mercado V2 + death focus)",
+      "version": "2.3.16-srp1799.2",
+      "channel": [
+        "canary",
+        "beta"
+      ],
+      "runtime": "1.7.99.0",
+      "target": "pluginsdev",
+      "url": "https://cdn.skyrimrp.com.br/launcher/files/1799/client-plugin-1799-2.3.16-srp1799.2.zip",
+      "files": [
+        {
+          "version": "2.3.16",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/PluginsDev/skyrim-rp-hud.js",
+          "size": 401,
+          "sha256": "a2e468868fb33529873c9fe7516963d2934adc9166cf5f84379939b8a6a4c1f5",
+          "required": true,
+          "source": "ZIP publicado skyrim-rp-hud-v2.3.16; idêntico ao golden",
+          "package": "client-plugin-1799",
+          "origin": "ZIP publicado skyrim-rp-hud-v2.3.16; idêntico ao golden",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Required by the closed 1.7.99 package audit for client-plugin-1799"
+        },
+        {
+          "version": "2.3.16",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/PluginsDev/srp-block-console.js",
+          "size": 4065,
+          "sha256": "4ee272d07a7efcce441b261b320d10ee678643f9a2c9828755cb02d640338a3c",
+          "required": true,
+          "source": "ZIP publicado skyrim-rp-hud-v2.3.16; idêntico ao golden",
+          "package": "client-plugin-1799",
+          "origin": "ZIP publicado skyrim-rp-hud-v2.3.16; idêntico ao golden",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Required by the closed 1.7.99 package audit for client-plugin-1799"
+        },
+        {
+          "version": "2.3.16-srp1799.2",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/PluginsDev/srp-deathfocus.js",
+          "size": 1624,
+          "sha256": "96bf6cacf83f406957841cb264ffc60114d077dacc849951d452777c16f8f06b",
+          "required": true,
+          "source": "golden-read-only; foco do CEF na tela de morte, sem contrato de servidor",
+          "package": "client-plugin-1799",
+          "origin": "golden-read-only; foco do CEF na tela de morte, sem contrato de servidor",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Required by the closed 1.7.99 package audit for client-plugin-1799"
+        },
+        {
+          "version": "2.3.16",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/PluginsDev/srp-diag-reload.js",
+          "size": 2651,
+          "sha256": "4473c8f2a0f50aafa08a60e67720a63fbc98548c9506a233aa9a8275ee426bfc",
+          "required": true,
+          "source": "ZIP publicado skyrim-rp-hud-v2.3.16; idêntico ao golden",
+          "package": "client-plugin-1799",
+          "origin": "ZIP publicado skyrim-rp-hud-v2.3.16; idêntico ao golden",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Required by the closed 1.7.99 package audit for client-plugin-1799"
+        },
+        {
+          "version": "2.3.16",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/PluginsDev/srp-emote.js",
+          "size": 3004,
+          "sha256": "1d9a46c93a5c2ce73578e8fad946150a0ab09ed3a1584d1829831e8a3054f821",
+          "required": true,
+          "source": "ZIP publicado skyrim-rp-hud-v2.3.16; idêntico ao golden",
+          "package": "client-plugin-1799",
+          "origin": "ZIP publicado skyrim-rp-hud-v2.3.16; idêntico ao golden",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Required by the closed 1.7.99 package audit for client-plugin-1799"
+        },
+        {
+          "version": "2.3.16-srp1799.1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/PluginsDev/srp-holdgov.js",
+          "size": 16712,
+          "sha256": "0edeb5d069393d5da4c019a18a6fa424245b6b6bcc86271ca16e5cf5fe48140d",
+          "required": true,
+          "source": "artefato autoritativo auditado: pós-mercado + deduplicação market:context; smoke 1.7.99 e protocolo LIVE comprovados",
+          "package": "client-plugin-1799",
+          "origin": "artefato autoritativo auditado: pós-mercado + deduplicação market:context; smoke 1.7.99 e protocolo LIVE comprovados",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Required by the closed 1.7.99 package audit for client-plugin-1799"
+        },
+        {
+          "version": "2.3.16",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/PluginsDev/srp-praca.js",
+          "size": 6446,
+          "sha256": "164fe5e01ba8df5a0474da037353b61064108bd78956242fb5ca00e157df8b71",
+          "required": true,
+          "source": "ZIP publicado skyrim-rp-hud-v2.3.16; idêntico ao golden",
+          "package": "client-plugin-1799",
+          "origin": "ZIP publicado skyrim-rp-hud-v2.3.16; idêntico ao golden",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Required by the closed 1.7.99 package audit for client-plugin-1799"
+        },
+        {
+          "version": "2.3.16-srp1799.2",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/PluginsDev/srp-whiterun-market.js",
+          "size": 48223,
+          "sha256": "652feb4568b66f1543cc069b274ae80664d0209e57546b624977e6a012fd4c3d",
+          "required": true,
+          "source": "golden-read-only; overlay do Mercado V2 per-stall (652feb45), dono do market:context",
+          "package": "client-plugin-1799",
+          "origin": "golden-read-only; overlay do Mercado V2 per-stall (652feb45), dono do market:context",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Required by the closed 1.7.99 package audit for client-plugin-1799"
+        }
+      ],
+      "size": 28667,
+      "sha256": "b6985f529242e3c3d3fdae13b87993bda8110d5e20e3d0bcdd6e03c26416a483"
+    },
+    {
+      "id": "skyrim-platform-config-1799",
+      "name": "SkyrimPlatform.ini (1.7.99)",
+      "version": "1.0.0",
+      "channel": [
+        "canary",
+        "beta"
+      ],
+      "runtime": "1.7.99.0",
+      "target": "skse-plugins",
+      "url": "https://cdn.skyrimrp.com.br/launcher/files/1799/skyrim-platform-config-1799-1.0.0.zip",
+      "files": [
+        {
+          "version": "1.0.0",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/SKSE/Plugins/SkyrimPlatform.ini",
+          "size": 1054,
+          "sha256": "5846029ac438f94fcbe73ed86ab89c81d42c6958329b27227d5135aa55ee84e3",
+          "required": true,
+          "source": "golden-read-only; config validada no smoke 1.7.99",
+          "package": "skyrim-platform-config-1799",
+          "origin": "golden-read-only; config validada no smoke 1.7.99",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "Required by the closed 1.7.99 package audit for skyrim-platform-config-1799"
+        }
+      ],
+      "size": 741,
+      "sha256": "5797a383fb2bb217ebfe24feaa54e7b38d1b4166d2167e6e97c9bb47f2b4c9a1"
+    },
+    {
+      "id": "client-fix-cleanup",
+      "name": "Correcao cliente duplicado",
+      "version": "1.0.0",
+      "target": "data",
+      "url": "https://cdn.brlink.site/launcher/files/srp-client-fix-cleanup-v1.zip",
+      "sha256": "6dcf20232e59f083cd0c36cc34aa655e9a8063f6f62571853cf15f4b4b04a2c7",
+      "size": 1440,
+      "inventoryStatus": "PACKAGEABLE_NOW",
+      "files": [
+        {
+          "version": "1.0.0",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Plugins/skymp5-client-fix.js",
+          "size": 360,
+          "sha256": "0a6765e7a4e9155bd5ba70d699e48ccb2eac6a8f346f188515e9fed0f0b81d0c",
+          "required": true
+        },
+        {
+          "version": "1.0.0",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/PluginsDev/skymp5-client-fix.js",
+          "size": 360,
+          "sha256": "0a6765e7a4e9155bd5ba70d699e48ccb2eac6a8f346f188515e9fed0f0b81d0c",
+          "required": true
+        }
+      ],
+      "notes": "Inventario extraido do ZIP v1 publicado e conferido byte a byte contra o golden 1.7.99."
+    },
+    {
+      "id": "hud-ui",
+      "name": "HUD UI",
+      "version": "1.0.0",
+      "target": "pluginsdev",
+      "url": "https://cdn.brlink.site/launcher/files/hud-ui.zip",
+      "sha256": "1baf47b6934b5823a4661944655ab538da7143f2647e61e59bfa3debfdc77a4f",
+      "size": 8968,
+      "inventoryStatus": "PACKAGEABLE_NOW",
+      "files": [
+        {
+          "version": "1.0.0",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/PluginsDev/ui/hud.html",
+          "size": 36777,
+          "sha256": "72e52a548b0c1f132d84b18aa3e0235ae25779c5151c8a46f857ca909b6e4121",
+          "required": true
+        }
+      ],
+      "notes": "Inventario extraido do ZIP v1 publicado e conferido byte a byte contra o golden 1.7.99."
+    },
+    {
+      "id": "login-ui",
+      "name": "Tela de Login",
+      "version": "1.0.0",
+      "target": "pluginsdev",
+      "url": "https://cdn.brlink.site/launcher/files/login-ui.zip",
+      "sha256": "d696dee1b7aca3815f2656d1453791b8d9322ff46fd302774ab471d01aa7c38f",
+      "size": 3223,
+      "inventoryStatus": "PACKAGEABLE_NOW",
+      "files": [
+        {
+          "version": "1.0.0",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/PluginsDev/login.html",
+          "size": 10543,
+          "sha256": "01070db67debb6c2df25e47dd3bdcba5e7fadef24cea48440608da028763b6f1",
+          "required": true
+        }
+      ],
+      "notes": "Inventario extraido do ZIP v1 publicado e conferido byte a byte contra o golden 1.7.99."
+    },
+    {
+      "id": "launcher-ui",
+      "name": "Launcher Desktop",
+      "version": "1.2.0",
+      "target": "pluginsdev",
+      "url": "https://cdn.brlink.site/launcher/files/launcher-ui.zip",
+      "sha256": "151bbd89394eca4d5cafe5d9218fdf5b444e01089e08a6f23f38b6b9e35759a1",
+      "size": 7577,
+      "inventoryStatus": "PACKAGEABLE_NOW",
+      "files": [
+        {
+          "version": "1.2.0",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/PluginsDev/launcher.html",
+          "size": 32344,
+          "sha256": "0bd047482849481e74ec8fd4c167edf5898a7150f8f6084d594dffb427cbce62",
+          "required": true
+        }
+      ],
+      "notes": "Inventario extraido do ZIP v1 publicado e conferido byte a byte contra o golden 1.7.99."
+    },
+    {
+      "id": "charselect-ui",
+      "name": "Tela de Personagem",
+      "version": "1.0.5-p0-lifecycle",
+      "target": "pluginsdev",
+      "url": "https://cdn.brlink.site/launcher/files/srp-charselect-global-v105-p0-lifecycle.zip",
+      "sha256": "ce5a1ba4c459af4317200dc6f0789cccc37e156364b47319c91538b1d1b2d0a0",
+      "size": 17441,
+      "inventoryStatus": "PACKAGEABLE_NOW",
+      "files": [
+        {
+          "version": "1.0.5-p0-lifecycle",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/PluginsDev/srp-charselect.js",
+          "size": 45794,
+          "sha256": "efdf9226b8fcea9dc70ac2b383fd9d53ada8546487bd2b820a1cf45c01daf12a",
+          "required": true
+        }
+      ],
+      "notes": "Inventario extraido do ZIP v1 publicado e conferido byte a byte contra o golden 1.7.99."
+    },
+    {
+      "id": "srp-murais",
+      "name": "Murais das Cidades",
+      "version": "1.0.1",
+      "target": "data",
+      "url": "https://cdn.brlink.site/launcher/files/srp-murais-v2.zip",
+      "sha256": "c0edd4121c9d2501403086e23a4232bbb481a1aafc74a393c3887aafd05983bd",
+      "size": 4862,
+      "inventoryStatus": "PACKAGEABLE_NOW",
+      "files": [
+        {
+          "version": "1.0.1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/ccsrp001-murais.esp",
+          "size": 10931,
+          "sha256": "8ff59f64747cef93d0f2e0fe2a03eb27f68a26ff4476fd0abda5fcfd28d733dd",
+          "required": true
+        }
+      ],
+      "notes": "Inventario extraido do ZIP v1 publicado e conferido byte a byte contra o golden 1.7.99."
+    },
+    {
+      "id": "skyrim-platform-runtime-1799",
+      "name": "Skyrim Platform 2.9.0 CEF + Node runtime (upstream dbbc6b7)",
+      "version": "2.9.0-dbbc6b7-runtime1",
+      "channel": [
+        "canary",
+        "beta"
+      ],
+      "runtime": "1.7.99.0",
+      "target": "data",
+      "url": "https://cdn.skyrimrp.com.br/launcher/files/1799/skyrim-platform-runtime-1799-2.9.0-dbbc6b7-runtime1.zip",
+      "files": [
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/build-metadata-public.json",
+          "size": 61,
+          "sha256": "d6d62a858b53e842e88c27e2ee8d7a4407224ad78060e7de5cc7406ced86819d",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/chrome_100_percent.pak",
+          "size": 616742,
+          "sha256": "2e0983144a46898fa34f82ab6629e963f82f776b22374c9628c14efc4aa07fc9",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/chrome_200_percent.pak",
+          "size": 921785,
+          "sha256": "bf547ef8687b1e965d68455f8b8b1b0e6f2c2452188a3967fbc54bfbd44c8e07",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/af.pak",
+          "size": 388250,
+          "sha256": "2361ea2d52bb31dc8b6d3db4766cfaa3b534954056a43a964c5e9d5b5183c358",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/am.pak",
+          "size": 627032,
+          "sha256": "fa0fd4d62876e89ec360d5fadd5c44797060c791fe791f777d1f6afc6dc9d199",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/ar.pak",
+          "size": 687581,
+          "sha256": "8b5ec1f2210062cd26d1a15cbb903578a327a42530b75a9519c0d085d135df4f",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/bg.pak",
+          "size": 717027,
+          "sha256": "6a89c2011887bd70876062b394a8c13553d6751d0c0d6b82ec8d13abb7f14f57",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/bn.pak",
+          "size": 921997,
+          "sha256": "1401d771994a0c9dc747201a51f59510dfb487a00dd47b68e191489b49458902",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/ca.pak",
+          "size": 445734,
+          "sha256": "ccef87f9b0185315ba9e878b652938a5b0c691f5779375b36a8ffd7484b1a1f3",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/cs.pak",
+          "size": 449563,
+          "sha256": "d905c5c03ee7c59fa0415c55e3d212e6c81ef423234f4946b104837cc027ce20",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/da.pak",
+          "size": 409056,
+          "sha256": "b4d0a8d13df398096fe733f26535e3f4abee6ab2219ce39935cd2fb38cddfefd",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/de.pak",
+          "size": 443657,
+          "sha256": "513ab338af45c715f08a946c3cc1a36bb9574c4c02071938192bf075ac71e8f9",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/el.pak",
+          "size": 784316,
+          "sha256": "6f2d867103d0d4a516892ae7792344af7b1a83c81475c88538c5bdd184c5fa55",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/en-GB.pak",
+          "size": 355786,
+          "sha256": "f4268edd9e2d6d4e34fceb0d855ae9bd4dd67713760398fb6f5f771d367b55a5",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/en-US.pak",
+          "size": 359289,
+          "sha256": "efc2f8dd67c06ab915800f3862f70841c0f0ef496f027122902fae0d1c0b9fd3",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/es-419.pak",
+          "size": 434927,
+          "sha256": "08d9992684c7afcc4205181bc68a8956d2721f36fb4873fd8676be287003bfa9",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/es.pak",
+          "size": 434198,
+          "sha256": "1988b0e2d3a58cd46aa23a8267615ebe94de55118099be6e134a91f2b9c3059d",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/et.pak",
+          "size": 393126,
+          "sha256": "6875596f3ba6c05ec2041302b7f2f49cd20e20940ede791f73470c18fb0d359a",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/fa.pak",
+          "size": 635188,
+          "sha256": "d76e9f03ae0cbb031629d139704d4451cbf710ee7d0363dbb09d7480fe7d2084",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/fi.pak",
+          "size": 401534,
+          "sha256": "72743cb956c840b085cc683a8db99930f2322ff99454d42f876c72dbd6328fed",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/fil.pak",
+          "size": 450899,
+          "sha256": "32453903334e18effa0742d7cb9728a8b2c3553697bac6a2ecb98ae65abf74ee",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/fr.pak",
+          "size": 471201,
+          "sha256": "6ad0709c684e6e818ca926d322d5fca8821c5a1c518027d76afbcd0021ccbe4a",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/gu.pak",
+          "size": 901348,
+          "sha256": "e62e7f6216c385139bbce910103017cd09e56e66f3321d7d7e2ef60ad199ae5a",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/he.pak",
+          "size": 559371,
+          "sha256": "79875b3ec1a244508a77d7df91a0225301219bef0ba79e9d980a305c9982336e",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/hi.pak",
+          "size": 953306,
+          "sha256": "45fb68ec8b914909a8aba7bdfe65750f6aa742612fde73d4a13ee173a9f92f33",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/hr.pak",
+          "size": 434481,
+          "sha256": "0465708c33f41be144752be5d2cd5bc13c5f76a6ea108d93349debe6d99e76d5",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/hu.pak",
+          "size": 468656,
+          "sha256": "67ba45bb50808b0a8e3c6998e1342d51d1b3924790a249b0df3200fcd214e469",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/id.pak",
+          "size": 384761,
+          "sha256": "e3ee4a574596bf29f06be0678fe9be742de698ec579c6bdee3e0b0a396687513",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/it.pak",
+          "size": 433497,
+          "sha256": "f261c5f5d04fb30e34a2b4164b1c4fa6184ad26e525fcbc398522cc0a4d3c827",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/ja.pak",
+          "size": 527154,
+          "sha256": "95b7b140328631155b819fc2dd2f764cf6d51125f4fa2990bb7c636d1cfe6e20",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/kn.pak",
+          "size": 1031741,
+          "sha256": "5b3380e70356058261e0006bdae92815722f01050b0f15c987f48f36f3154e70",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/ko.pak",
+          "size": 441337,
+          "sha256": "e50fb968b8a1d854bd4671a59472bd9f21e401250832ccbcbb7a52f5c16e66eb",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/lt.pak",
+          "size": 472156,
+          "sha256": "9ce4ed044250cb3274ad642e0ed3f5a7fdda6f339f273c9741b89ac9c869f667",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/lv.pak",
+          "size": 470327,
+          "sha256": "bbcc1fd08337c5d5dfe78b94188cb84733b21c7418d92e10cf2c9587c5473872",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/ml.pak",
+          "size": 1073516,
+          "sha256": "b36279df7f20ef10c041a482b42c09a143eaacce8d284e65b48a102cbe7a58a0",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/mr.pak",
+          "size": 879466,
+          "sha256": "b21a31e18510b351dd9622441ea6fa7a6359e7ab3f583f701761c5075d5d12a0",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/ms.pak",
+          "size": 402394,
+          "sha256": "2b9230a4ab6c40755cec5383afe6fb3347dc63cc075eaf9dff24dc6ff25ffe95",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/nb.pak",
+          "size": 393411,
+          "sha256": "f58a866a42220a276a9bbe23a7f1a9d982c818e85f8cefbb644b6788bd23ed01",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/nl.pak",
+          "size": 407028,
+          "sha256": "30cce9ed7501750952b6cebf576ebcd305b2e529608895930f0cf85ef3fd2836",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/pl.pak",
+          "size": 453776,
+          "sha256": "5c76832d2d49a23ca93e30171c1aaa1630df70c685d918c11f51eef09f4b9b2f",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/pt-BR.pak",
+          "size": 427327,
+          "sha256": "5c1618a19f07c18ba8dd372fac6c59b7228e8ce8b96ba9129ff5a73606d35e04",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/pt-PT.pak",
+          "size": 430739,
+          "sha256": "7003501783b1c5b23f6b784951b99f99d9f8f948f35ac865446976a1e7b5f7b1",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/ro.pak",
+          "size": 441861,
+          "sha256": "8a54fdb16e30fbe9e11152138366f0deec089c1e5d04971ba820b0cbcf06a7ac",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/ru.pak",
+          "size": 719207,
+          "sha256": "3f6398b9d9d5c586b30c99e48214ae6fe5618bc4647926a4126da0efe7428789",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/sk.pak",
+          "size": 456346,
+          "sha256": "9a556c91e3f707c8960e03fa2fddc4aa6c86d0024a40ab5c9f5e28e6972c8b57",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/sl.pak",
+          "size": 437793,
+          "sha256": "e486a4b12b49d83ff6d3fb29a4ecb73d3856d1e20ddd5d6e1d0cd23eab3d9009",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/sr.pak",
+          "size": 675492,
+          "sha256": "dfe72beba60035fc3986ec1d4551af0670dcd79708eb2a4df9766ae7e8ea724a",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/sv.pak",
+          "size": 396933,
+          "sha256": "c3c35820d26695627be6f3464371dae9f16fbccc73b70067ee5fbd42e669167f",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/sw.pak",
+          "size": 417144,
+          "sha256": "215de59505939b200ba7da837ccf70e727d973d55971a518f7fe7f890053d9d7",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/ta.pak",
+          "size": 1064245,
+          "sha256": "2bd08f85ffce5d9618ccb1fa78bda629d153617c8d8e31a5af4a914e0e3a289d",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/te.pak",
+          "size": 984677,
+          "sha256": "dd3351cbb83a159f91d995ac1d891ee4a307a4637538d590e51f466ae0741ed2",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/th.pak",
+          "size": 829049,
+          "sha256": "9a9ecadca600c89cc390fd25246daffb0c6c185a4dadfd19bb0e9765808217c6",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/tr.pak",
+          "size": 424510,
+          "sha256": "8018adb61f2a1b9196999e8bf66197a62bec5fa734563a3bdb5f64a6436dfddb",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/uk.pak",
+          "size": 719140,
+          "sha256": "a1523b5e314b00972a4a31a16befc65a5824a66c0911d604251e65d51be40cf7",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/ur.pak",
+          "size": 628511,
+          "sha256": "7105c270397dcd5d2fbe1d37d78a63f589241761c4d80891f80fee4cdf3ac5ed",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/vi.pak",
+          "size": 502442,
+          "sha256": "7b43c11620f4e8c495e3d7838fdd339b0df3394c11a7e4e8cadd91bd46d0bfcb",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/zh-CN.pak",
+          "size": 366147,
+          "sha256": "317cf87da98d1993191af224f92edf5da1a59897a4257d032ce9998315026d54",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/locales/zh-TW.pak",
+          "size": 365895,
+          "sha256": "765a5262b824ca559c439c199a6df0e35a4577e26d17a2d7e0386a2c7fbfb03a",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/CEF/resources.pak",
+          "size": 7517213,
+          "sha256": "98922abb4fc39806fe7d75e87e82e183b830a069b55639704d789aa138644f1f",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/RuntimeDependencies/chrome_elf.dll",
+          "size": 1411072,
+          "sha256": "4f5f1dc6d998b07e3919055b6f9cc8befc626d30479c7c2d07722051650491a0",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/RuntimeDependencies/d3dcompiler_47.dll",
+          "size": 4891080,
+          "sha256": "e4bc3420a28069bd13dc3be725d46676a7c0e99de221026e8c43cd6f7ed45c0b",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/RuntimeDependencies/icudtl.dat",
+          "size": 10462432,
+          "sha256": "97b978a19edd4746e9a44d9a44bb4bc519e127a203c247837ec0922f573449e3",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/RuntimeDependencies/libcef.dll",
+          "size": 191842816,
+          "sha256": "52aa8b457a5f174d0a51509da4dc8e128b6b4bb476b800bab6c7eb9c109219be",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/RuntimeDependencies/libEGL.dll",
+          "size": 474624,
+          "sha256": "1100398a3fe57da76ea58b9b110be2f6a83a75a3e1863863f086d9218b46cc5a",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/RuntimeDependencies/libGLESv2.dll",
+          "size": 7493120,
+          "sha256": "49ee2a4800a8eba183169152ecd5550b8d55989785e2f44a7de04930dcb3d7ef",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/RuntimeDependencies/libnode.dll",
+          "size": 109094912,
+          "sha256": "f22c87fa55e3c0e8b5626fd94c801ba7f1bf581e6fa555ce702c44e553d2d210",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/RuntimeDependencies/SkyrimPlatformCEF.exe",
+          "size": 431616,
+          "sha256": "21f8ab51466bb54bc8bf4a2bb27e6e445a7beb355aa32f6215cd50f676248f6b",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte; authoritative SkyrimPlatformCEF.exe.hidden activated under the runtime filename expected by the working client",
+          "originClassification": "RECONSTRUCTIBLE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/RuntimeDependencies/snapshot_blob.bin",
+          "size": 171960,
+          "sha256": "f319be81888c4535b6066a65b4a6b0316492fde6defc521f84066bb6267ffa05",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        },
+        {
+          "version": "2.9.0-dbbc6b7-runtime1",
+          "channel": [
+            "canary",
+            "beta"
+          ],
+          "path": "Data/Platform/Distribution/RuntimeDependencies/v8_context_snapshot.bin",
+          "size": 471944,
+          "sha256": "426940afcc83b5c65e6e69ba9febc2e6778b33942b45b0fc17b6f42ddd049317",
+          "required": true,
+          "package": "skyrim-platform-runtime-1799",
+          "origin": "SkyrimPlatform 2.9.0 distribution artifact, upstream skyrim-multiplayer/skymp commit dbbc6b7e4bb33f79c45387a144eaa513aa88030c; 3 independent extracts matched byte-for-byte",
+          "originClassification": "AUTHORITATIVE",
+          "reason": "REQUIRED AS PART OF THE VERSIONED SKYRIMPLATFORM CEF/NODE RUNTIME SET"
+        }
+      ],
+      "size": 147701890,
+      "sha256": "55b84eef45de476933de479d3b5827ffc3f0f42211dd4d074f4bc3f7aa9561d0"
+    }
+  ],
+  "cdnAudit": {
+    "productionManifest": "UNCHANGED",
+    "productionCdn": "UNCHANGED",
+    "publishedClient16Packages": [
+      "skyrim-platform",
+      "srp-client-hotfix",
+      "srp-front",
+      "client-fix-cleanup",
+      "hud-ui",
+      "login-ui",
+      "launcher-ui",
+      "skyrim-platform-config",
+      "address-library",
+      "client-plugin",
+      "charselect-ui",
+      "srp-murais",
+      "skyrimsouls",
+      "skse"
+    ],
+    "proposedClient1799Packages": {
+      "status": "PACKAGED_LOCAL_LAB_NOT_PUBLISHED",
+      "ids": [
+        "skse-1799",
+        "skyrim-platform-1799",
+        "address-library-1799",
+        "srp-client-1799",
+        "client-plugin-1799",
+        "skyrim-platform-config-1799"
+      ],
+      "artifacts": [
+        {
+          "id": "skse-1799",
+          "size": 572356,
+          "sha256": "e6c47af6ba308c083a3c53ef8e0ca4b19d5e188e6f84c629d719b5278162704e"
+        },
+        {
+          "id": "skyrim-platform-1799",
+          "size": 6113812,
+          "sha256": "eeff532e259fbf70ea2d9bb68741aadd726b4f3bf29ddaa06bba790dd2728d9e"
+        },
+        {
+          "id": "address-library-1799",
+          "size": 1244361,
+          "sha256": "f1dcc93de5885c377d1e4b5338b34eb4e8cf831d569de97215e26050c066c2a6"
+        },
+        {
+          "id": "srp-client-1799",
+          "size": 1162933,
+          "sha256": "a3b00866ecaf47c5b90aae70368f54d8aa1f0265b91da424a4d1c1b61b1e0fff"
+        },
+        {
+          "id": "client-plugin-1799",
+          "size": 13531,
+          "sha256": "f3a09cb6de73a1616c8e0fb216db8d6bbf47768bacfb583fe7c3d6ab37082caa"
+        },
+        {
+          "id": "skyrim-platform-config-1799",
+          "size": 738,
+          "sha256": "869f84ebbca04741feeb6eba81bf42564e72e901ffe27d8aa5c48ddbdd494ebf"
+        }
+      ],
+      "packageSha256": "REAL_LOCAL_HASHES_IN_ARTIFACTS",
+      "published": false
+    },
+    "divergentFiles": [
+      "skse64_loader.exe",
+      "skse64_1_7_99.dll",
+      "Data/SKSE/Plugins/SkyrimPlatform.dll",
+      "Data/Platform/Distribution/RuntimeDependencies/SkyrimPlatformImpl.dll",
+      "Data/SKSE/Plugins/versionlib-1-7-99-0.bin",
+      "Data/Platform/Plugins/skymp5-client.js",
+      "Data/Platform/UI/index.html",
+      "Data/Platform/UI/build.js"
+    ],
+    "identicalNetworkFile": {
+      "path": "Data/SKSE/Plugins/MpClientPlugin.dll",
+      "sha256": "0b41869d785db850fc287d7cb86a48afc56bd829b46bc6ecc66db968cf272211"
+    },
+    "productionClientBundle": {
+      "path": "Data/Platform/Plugins/skymp5-client.js",
+      "size": 1552249,
+      "sha256": "bd728f2e9b408dc02c59bb3e807ef6c3a1b022fc58cc960bbabfc5cd1b359b1f"
+    }
+  },
+  "compatibility": {
+    "oldServer": "179.198.100.240:7777",
+    "newServer": "UNKNOWN_NOT_CREATED_NOT_TESTED",
+    "matrix": [
+      {
+        "client": "1.6.x",
+        "oldServer": "PASS",
+        "newServer": "UNKNOWN"
+      },
+      {
+        "client": "1.7.99",
+        "oldServer": "PASS_EXISTING_CHARACTER_ONLY_RACE_MENU_NOT_TESTED",
+        "newServer": "UNKNOWN"
+      }
+    ],
+    "api": {
+      "endpoint": "https://api.skyrimrp.com.br",
+      "version": "UNKNOWN",
+      "sha256": "UNKNOWN",
+      "changeRequired": false
+    },
+    "gamemode": {
+      "version": "UNKNOWN",
+      "sha256": "UNKNOWN"
+    }
+  },
+  "rollback": {
+    "from": "client-1.7.99",
+    "to": "client-1.6",
+    "restorePackages": [
+      "skse",
+      "skyrim-platform",
+      "address-library",
+      "srp-client-hotfix"
+    ],
+    "managedPaths": 10,
+    "strategy": "staging + transaction journal + side-by-side backup + atomic activation",
+    "automaticRepair": false,
+    "notes": "Rollback exige repor os 4 pacotes 1.6 E o jogo voltar a 1.6.1170 na Steam. Reverter so os pacotes num exe 1.7.99 deixa o cliente pior que os dois estados. Ver secao 12 do RELEASE-PLAN-1799.md."
+  }
+}
