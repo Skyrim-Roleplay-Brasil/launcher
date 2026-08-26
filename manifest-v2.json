@@ -1,12 +1,12 @@
 {
   "_RELEASE": "Release publico client-1.7.99 com Launcher estavel 1.6.3, reconciliado em 2026-08-26. Sete ZIPs principais foram publicados e verificados por SHA-256; o grafo validado de 12 packages entrega 162 arquivos REQUIRED. SkyrimSouls permanece excluido do perfil 1.7.99; client-1.6 e seus artefatos permanecem preservados para rollback operacional.",
   "schemaVersion": 2,
-  "generatedAt": "2026-08-26T00:00:00-03:00",
+  "generatedAt": "2026-08-26T10:12:00-03:00",
   "launcher": {
     "version": "1.6.3",
-    "minVersion": "1.6.0",
+    "minVersion": "1.6.2",
     "forceUpdate": false,
-    "notes": "1.6.3 e' o launcher publico estavel. minVersion 1.6.0 preserva a versao minima que entende schemaVersion 2 e canais. O manifest v1 permanece no path legado para clientes antigos."
+    "notes": "1.6.3 corrige o falso estado de atualizacao pendente apos o fluxo v2, valida installed.json schema v2 e preserva o bloqueio de PLAY quando existe delta, cleanup ou estado invalido real. Nao altera arquivos do client-1.7.99."
   },
   "flowPolicy": {
     "bootstrap": {
