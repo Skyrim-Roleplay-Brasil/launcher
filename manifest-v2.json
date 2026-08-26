@@ -1,12 +1,12 @@
 {
-  "_RELEASE": "Release publico 1.7.99 congelado em 2026-08-24. Sete ZIPs principais publicados e verificados por SHA-256; o grafo validado de 12 packages entrega 162 arquivos REQUIRED. Front RC5.2 e o bloqueio fail-closed de tints integram srp-client-1799. client-plugin-1799 usa o HoldGov autoritativo auditado. SkyrimSouls permanece excluido somente do perfil 1.7.99; client-1.6 e seus artefatos permanecem preservados para rollback operacional.",
+  "_RELEASE": "Release publico client-1.7.99 com Launcher estavel 1.6.3, reconciliado em 2026-08-26. Sete ZIPs principais foram publicados e verificados por SHA-256; o grafo validado de 12 packages entrega 162 arquivos REQUIRED. SkyrimSouls permanece excluido do perfil 1.7.99; client-1.6 e seus artefatos permanecem preservados para rollback operacional.",
   "schemaVersion": 2,
-  "generatedAt": "2026-08-24T00:00:00-03:00",
+  "generatedAt": "2026-08-26T00:00:00-03:00",
   "launcher": {
-    "version": "1.6.0",
+    "version": "1.6.3",
     "minVersion": "1.6.0",
     "forceUpdate": false,
-    "notes": "1.6.0 e' o launcher que sabe ler schemaVersion 2 e canais. O 1.5.23 em campo NAO entende este arquivo — por isso o manifest v1 continua servido no path atual ate a base migrar."
+    "notes": "1.6.3 e' o launcher publico estavel. minVersion 1.6.0 preserva a versao minima que entende schemaVersion 2 e canais. O manifest v1 permanece no path legado para clientes antigos."
   },
   "flowPolicy": {
     "bootstrap": {

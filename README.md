@@ -1,57 +1,46 @@
 <div align="center">
 
-# 🚀 Launcher — Skyrim Roleplay Brasil
+# 🚀 Launcher — Skyrim RP Brasil
 
-**Launcher oficial do servidor de roleplay multiplayer Reino Alto.**
+**Launcher oficial do projeto Skyrim RP Brasil.**
 
-[![Versão](https://img.shields.io/badge/Vers%C3%A3o-v1.5.22-38a169?style=for-the-badge)](https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/latest)
-[![Plataforma](https://img.shields.io/badge/Windows-x64-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/latest)
+[![Versão](https://img.shields.io/badge/Vers%C3%A3o-v1.6.3-38a169?style=for-the-badge)](https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/tag/v1.6.3)
+[![Skyrim](https://img.shields.io/badge/Skyrim-1.7.99-8b5a2b?style=for-the-badge)](https://skyrimrp.com.br/download)
+[![Plataforma](https://img.shields.io/badge/Windows-x64-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/tag/v1.6.3)
 
 </div>
 
----
+## Release público
 
-## 📖 Sobre
+| Componente | Valor |
+|---|---|
+| Launcher estável | `1.6.3` |
+| Skyrim requerido | `1.7.99.0` |
+| Perfil público | `client-1.7.99` |
+| Manifesto | [`manifest-v2.json`](manifest-v2.json) |
 
-O launcher oficial do **Skyrim Roleplay Brasil**. Ele cuida de toda a parte técnica pra você:
+Este repositório contém os manifestos públicos e os releases oficiais. Trabalho ainda não publicado não deve ser tratado como estável.
 
-- ✅ **Instala e atualiza os mods** do servidor automaticamente (SKSE, Skyrim Platform, HUD e plugins).
-- ✅ **Verifica a integridade** dos arquivos (validação SHA-256).
-- ✅ **Atualiza a si mesmo** quando sai uma nova versão.
-- ✅ **Login integrado** com a sua conta do servidor.
-- ✅ **Notícias e status do servidor** direto na tela inicial.
-- ✅ **Integração com Discord** (Rich Presence).
+## Download
 
-## 📥 Download
+Baixe somente pelo [release oficial v1.6.3](https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/tag/v1.6.3) ou pela [página de download](https://skyrimrp.com.br/download).
 
-Baixe a versão mais recente na página de **[Releases](https://github.com/Skyrim-Roleplay-Brasil/launcher/releases/latest)**.
+1. Baixe `SkyrimRP-Launcher-Setup.exe`.
+2. Confira que a origem é a organização `Skyrim-Roleplay-Brasil`.
+3. Instale, autentique e deixe o launcher validar o perfil do cliente.
 
-1. Baixe o arquivo `SkyrimRP-Launcher-V1.5-Setup-x.x.x.exe`.
-2. Execute o instalador.
-3. Abra o launcher, faça login e clique em **Jogar**.
+> Requisito: cópia original de *The Elder Scrolls V: Skyrim Special Edition* pela Steam, runtime exato `1.7.99.0`.
 
-> **Requisito:** *The Elder Scrolls V: Skyrim Special Edition* original instalado (versões suportadas: 1.6.640 e 1.6.1170).
+## Integridade do instalador 1.6.3
 
-## ⚙️ Tecnologia
+```text
+SHA-256  63ea5796febfce41b8fb39336b56e7fd3b530bfb8aca5b41e336d622bad8d417
+Arquivo  SkyrimRP-Launcher-Setup.exe
+Tamanho  78.496.066 bytes
+```
 
-- **Electron** (Windows x64, instalador NSIS)
-- Auto-update do executável via GitHub Releases (`latest.yml`)
-- Pacotes do jogo exclusivamente via `cdn.skyrimrp.com.br`
-- Login, notícias e status via `api.skyrimrp.com.br`
-- Integração Discord RPC
-- Protocolo `reinoalto://`
+## Links
 
-## ❓ O aviso do Windows (SmartScreen)
-
-Nas primeiras versões, o Windows pode exibir um aviso de *"editor desconhecido"* ao instalar. Isso acontece porque o instalador ainda está ganhando reputação junto ao SmartScreen — **não é vírus**. Para instalar:
-
-1. Clique em **Mais informações**.
-2. Clique em **Executar assim mesmo**.
-
-> Estamos trabalhando na assinatura digital do instalador para remover esse aviso.
-
----
-
-<div align="center">
-<sub>© 2026 Skyrim Roleplay Brasil</sub>
-</div>
+- [Site](https://skyrimrp.com.br/)
+- [Download](https://skyrimrp.com.br/download)
+- [Releases](https://github.com/Skyrim-Roleplay-Brasil/launcher/releases)
